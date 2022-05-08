@@ -17,16 +17,6 @@ export default {
 
 const Template: ComponentStory<typeof HomePage> = (args) => <HomePage {...args} />;
 
-export const LoggedOut = Template.bind({});
-LoggedOut.args = {
-  loggedIn: false,
-};
-
-export const LoggedIn = Template.bind({});
-LoggedIn.args = {
-  loggedIn: true,
-};
-
 // More on interaction testing: https://storybook.js.org/docs/react/writing-tests/interaction-testing
 // LoggedIn.play = async ({ canvasElement }) => {
 //   const canvas = within(canvasElement);
