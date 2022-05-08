@@ -21,7 +21,11 @@ export const BalanceDisplay: React.FC<BalanceDisplayProps> = ({ myETHBalance, ba
       <Text weight="bold" color="dimmed" sx={{ fontSize: '2.25rem', lineHeight: '2.25rem' }}>
         {ethToUsd(myETHBalance)}
       </Text>
-      <Text weight="bold" color="green" sx={{ fontSize: '2.25rem', lineHeight: '2.25rem' }}>
+      <Text
+        weight="bold"
+        color={balanceDelta > 0 ? 'green' : balanceDelta < 0 ? 'red' : 'gray'}
+        sx={{ fontSize: '2.25rem', lineHeight: '2.25rem' }}
+      >
         {balanceDelta > 0 ? '+' : balanceDelta < 0 ? '-' : ''}
         {balanceDelta}%
       </Text>
