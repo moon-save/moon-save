@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box, NumberInputHandlers, ScrollArea, Text } from '@mantine/core';
 import { TransactionListItem } from './TransactionListItem/TransactionListItem';
+import { BalanceDisplay } from '../../components/BalanceDisplay/BalanceDisplay';
 
 export interface Transaction {
+  transactionId: number;
   transactionType: 'deposit' | 'interest' | 'withdrawal' | 'MoonSave';
   transactionAmount: number;
   transactionDate: Date;
@@ -24,11 +26,18 @@ export const TransactionsPage: React.FC<TransactionsPageProps> = ({ transactions
   //     </Box> */}
   //   </Box>
   // </Box>
+  // <Box>
+  //   <Text>Graph here</Text>
+  // </Box>
+  <Box>
+    <Text>HISTORY</Text>
+    <BalanceDisplay myETHBalance={3.3722} balanceDelta={523.23} myOddsToWin={0.6712} showOddsToWin={false} />
     <ScrollArea>
       {transactionsList.map((transaction) => (
-        <TransactionListItem {...transaction} />
+        <TransactionListItem key={transaction.transactionId} {...transaction} />
       ))}
     </ScrollArea>
+  </Box>
   );
 };
 TransactionsPage.displayName = 'TransactionsPage';

@@ -14,6 +14,7 @@ export default {
     balanceDelta: 523.23,
     transactionsList: [
       {
+        transactionId: 0,
         transactionType: 'deposit',
         transactionAmount: 1,
         transactionDate: new Date('December 17, 1995'),

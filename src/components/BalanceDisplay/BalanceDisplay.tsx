@@ -7,9 +7,10 @@ interface BalanceDisplayProps {
   myETHBalance: number;
   balanceDelta: number;
   myOddsToWin: number;
+  showOddsToWin: boolean;
 }
 
-export const BalanceDisplay: React.FC<BalanceDisplayProps> = ({ myETHBalance, balanceDelta, myOddsToWin }) => (
+export const BalanceDisplay: React.FC<BalanceDisplayProps> = ({ myETHBalance, balanceDelta, myOddsToWin, showOddsToWin }) => (
   <Box sx={{ display: 'flex', flexDirection: 'column' }}>
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
       <Text weight="bold" sx={{ fontSize: '4rem', lineHeight: '4rem' }} lineClamp={1}>
@@ -30,7 +31,7 @@ export const BalanceDisplay: React.FC<BalanceDisplayProps> = ({ myETHBalance, ba
         {balanceDelta}%
       </Text>
     </Box>
-    <Text size="xl">{myOddsToWin}% Odds to Win</Text>
+    {showOddsToWin && <Text size="xl">{myOddsToWin}% Odds to Win</Text>}
   </Box>
 );
 BalanceDisplay.displayName = 'BalanceDisplay';

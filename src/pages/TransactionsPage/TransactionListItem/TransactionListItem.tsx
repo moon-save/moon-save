@@ -7,7 +7,8 @@ type TransactionListItemProps = Transaction;
 export const TransactionListItem: React.FC<TransactionListItemProps> = ({ transactionType, transactionAmount, transactionDate, totalBankAmount }) => (
   <>
     <Text>
-      {transactionType} {transactionAmount} {transactionDate} {totalBankAmount}
+      {/* TODO: Date format string */}
+      {transactionType} {transactionAmount} {totalBankAmount}
     </Text>
   </>
 );
