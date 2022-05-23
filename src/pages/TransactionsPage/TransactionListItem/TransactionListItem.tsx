@@ -4,10 +4,10 @@ import type { Transaction } from '../TransactionsPage.component';
 
 type TransactionListItemProps = Transaction;
 
-export const TransactionListItem: React.FC<TransactionListItemProps> = ({ transactionType, transactionAmount }) => (
+export const TransactionListItem: React.FC<TransactionListItemProps> = ({ transactionType, transactionAmount, transactionDate, totalBankAmount }) => (
   <>
     <Text>
-      {transactionType} {transactionAmount}
+      {transactionType} {transactionAmount} {transactionDate} {totalBankAmount}
     </Text>
   </>
 );
