@@ -1,26 +1,39 @@
 import React from 'react';
-import { Box, Divider, NumberInputHandlers, ScrollArea, Space, Text } from '@mantine/core';
-import { Transaction, TransactionListItem } from './TransactionListItem/TransactionListItem';
-import { BalanceDisplay } from '../../components/BalanceDisplay/BalanceDisplay';
+import { Box, Center, ScrollArea, Text } from '@mantine/core';
+import { BalanceDisplay, BalanceDisplayProps } from '../../components/BalanceDisplay/BalanceDisplay';
+import { Transaction } from './transactions.types';
+import { TransactionListItem } from './TransactionListItem/TransactionListItem';
 
-interface TransactionsPageProps {
-  transactionsList: Transaction[];
-}
+type TransactionsPageProps = {
+  transactionsList: Transaction[] | undefined;
+} & BalanceDisplayProps;
 
-export const TransactionsPage: React.FC<TransactionsPageProps> = ({ transactionsList }) => {
+export const TransactionsPage: React.FC<TransactionsPageProps> = ({ transactionsList, ...balanceDisplayProps }) => {
   return (
-  <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gridTemplateColumns: '1fr 1fr'}}>
-    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
-      <Text sx={{ fontSize: '4rem' }}>History</Text>
-      <BalanceDisplay myETHBalance={3.3722} balanceDelta={523.23} myOddsToWin={0.6712} showOddsToWin={false} />
+    <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gridTemplateColumns: '1fr 1fr' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+        <Text sx={{ fontSize: '4rem' }}>History</Text>
+        <BalanceDisplay {...balanceDisplayProps} />
+      </Box>
+      <Text>
+        <br></br>
+      </Text>
+      {transactionsList ? (
+        transactionsList.length === 0 ? (
+          <Center sx={{ height: '100%' }}>
+            <Text>No transactions found</Text>
+          </Center>
+        ) : (
+          <ScrollArea sx={{ width: '100%', height: '100%', gap: '4rem' }}>
+            {transactionsList.map((transaction) => (
+              <TransactionListItem key={transaction.transactionId} {...transaction} />
+            ))}
+          </ScrollArea>
+        )
+      ) : (
+        <Text>Error: Account not found</Text>
+      )}
     </Box>
-    <Text><br></br></Text>
-      <ScrollArea sx={{width: '100%', gap: '4rem'}}>
-        {transactionsList.map((transaction) => (
-          <TransactionListItem key={transaction.transactionId} {...transaction} />
-        ))}
-      </ScrollArea>
-  </Box>
   );
 };
 TransactionsPage.displayName = 'TransactionsPage';

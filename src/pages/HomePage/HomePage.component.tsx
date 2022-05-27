@@ -1,12 +1,14 @@
 import React from 'react';
 import { Box, Button, Text } from '@mantine/core';
-import { BalanceDisplay } from '../../components/BalanceDisplay/BalanceDisplay';
+import { BalanceDisplay, BalanceDisplayProps } from '../../components/BalanceDisplay/BalanceDisplay';
 
-export const HomePage: React.FC = () => (
+export type HomePageProps = BalanceDisplayProps;
+
+export const HomePage: React.FC<HomePageProps> = (props) => (
   <Box sx={{ width: '100%', display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '4rem', justifyContent: 'center' }}>
       <Text sx={{ fontSize: '4rem' }}>Balance</Text>
-      <BalanceDisplay myETHBalance={3.3722} balanceDelta={523.23} myOddsToWin={0.6712} showOddsToWin={true} />
+      <BalanceDisplay {...props} />
       <Box sx={{ display: 'flex', gap: '1rem' }}>
         <Button>Deposit</Button>
         <Button>Withdraw</Button>
