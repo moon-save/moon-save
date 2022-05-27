@@ -1,8 +1,8 @@
 import { ColorScheme, Container } from '@mantine/core';
 import { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { AppBar } from './components/AppBar/AppBar';
 import { appRoutes, toAppBarRoute } from './routes/routes';
+import { AppBar } from './components/AppBar/AppBar';
 
 const App = () => {
   const location = useLocation();

@@ -1,16 +1,9 @@
 import React from 'react';
 import { TransactionsPage } from './TransactionsPage.component';
-
-// const transactionsList = [
-//   {
-//     transactionType: 'deposit' as const,
-//     transactionAmount: 1,
-//     transactionDate: new Date('December 17, 1995'),
-//     totalBankAmount: 10,
-//   },
-// ];
+import { useTransactionsPageState } from './useTransactionsPageState';
 
 export const TransactionsPageContainer = React.memo(() => {
+  const state = useTransactionsPageState();
   const transactionsList = [
     {
       transactionId: 12,
@@ -98,7 +91,7 @@ export const TransactionsPageContainer = React.memo(() => {
     },
   ];
 
-  return <TransactionsPage transactionsList={transactionsList}/>;
+  return <TransactionsPage {...state} />;
 });
 
 TransactionsPageContainer.displayName = 'TransactionsPageContainer';

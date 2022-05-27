@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Anchor, Box, ColorScheme, Title } from '@mantine/core';
 import type { AppRoute } from '../../routes/routes.types';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
+import { Connect } from '../Connect/Connect';
 
 type AppBarRoute = Pick<AppRoute, 'to' | 'name'>;
 
@@ -25,6 +26,7 @@ export const AppBar: React.FC<AppBarProps> = ({ routes, currentRoute, currentCol
       </Box>
     </Box>
     <Box>
+      <Connect />
       <ThemeToggle currentColorScheme={currentColorScheme} setColorScheme={setColorScheme} />
     </Box>
   </Box>
