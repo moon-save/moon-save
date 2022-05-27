@@ -6,6 +6,7 @@ import App from './App';
 import { moonSaveTheme } from './theme/theme';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HomePageContainer } from './pages/HomePage/HomePage.container';
+import { TransactionsPageContainer } from './pages/TransactionsPage/TransactionsPage.container';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +15,7 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route path="/home" element={<HomePageContainer />} />
-            <Route path="/transactions" element={<>Transactions</>} />
+            <Route path="/transactions" element={<TransactionsPageContainer />} />
             <Route
               path="*"
               element={

@@ -13,6 +13,7 @@ export default {
     myETHBalance: 3.3722,
     balanceDelta: 523.23,
     myOddsToWin: 0.6712,
+    showOddsToWin: true,
   },
 } as ComponentMeta<typeof HomePage>;
 
