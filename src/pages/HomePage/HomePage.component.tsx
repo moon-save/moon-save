@@ -1,6 +1,21 @@
 import React from 'react';
 import { Box, Button, Text } from '@mantine/core';
 import { BalanceDisplay, BalanceDisplayProps } from '../../components/BalanceDisplay/BalanceDisplay';
+import savingsContractAbi from "../../abi/SavingsLottery.json";
+import { savingsContractAddress } from "../../contracts";
+import { utils } from 'ethers';
+import { Contract } from '@ethersproject/contracts';
+import { useContractFunction } from '@usedapp/core';
+
+const savingsContractInterface = new utils.Interface(savingsContractAbi)
+const contract = new Contract(savingsContractAddress, savingsContractInterface)
+
+export function getLotteryID() {
+  const { state, send } = useContractFunction(contract, 'getLotteryID', { transactionName: 'GetLotteryID' });
+  return { state, send };
+}
+
+// send()
 
 export type HomePageProps = BalanceDisplayProps;
 
