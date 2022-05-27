@@ -10,6 +10,7 @@ import { HomePageContainer } from './pages/HomePage/HomePage.container';
 import { TransactionsPageContainer } from './pages/TransactionsPage/TransactionsPage.container';
 import { DepositPageContainer } from './pages/DepositPage/DepositPage.container';
 import { WithdrawalPageContainer } from './pages/WithdrawalPage/WithdrawalPage.container';
+import { WinnerPageContainer } from './pages/WinnerPage/WinnerPage.container';
 
 
 ReactDOM.render(
@@ -23,6 +24,7 @@ ReactDOM.render(
               <Route path="/transactions" element={<TransactionsPageContainer />} />
               <Route path="/deposit" element={<DepositPageContainer />} />
               <Route path="/withdrawal" element={<WithdrawalPageContainer />} />
+              <Route path="/winner" element={<WinnerPageContainer />} />
               <Route
                 path="*"
                 element={
