@@ -6,7 +6,7 @@ export const useBalanceState = () => {
   const { account } = useEthers();
   const etherBalance = useEtherBalance(account);
   const etherBalanceString = etherBalance ? `${formatEther(etherBalance)} ETH` : 'Balance unavailable';
-  const etherBalanceInUSD = etherBalance ? ethToUsd(etherBalance.toNumber()) : 'Balance unavailable';
+  const etherBalanceInUSD = etherBalance ? ethToUsd(Number(formatEther(etherBalance))) : 'Balance unavailable';
 
   return {
     myETHBalance: etherBalanceString,

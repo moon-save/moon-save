@@ -10,9 +10,10 @@ export default {
     layout: 'fullscreen',
   },
   args: {
-    myETHBalance: 3.3722,
+    myETHBalance: "3.3722",
+    myETHBalanceInUSD: "$3000",
     balanceDelta: 523.23,
-    myOddsToWin: 0.6712,
+    myOddsToWin: "0.6712",
     showOddsToWin: true,
   },
 } as ComponentMeta<typeof HomePage>;

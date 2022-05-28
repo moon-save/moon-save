@@ -1,6 +1,6 @@
 import { StoredTransaction, useEthers, useTransactions } from '@usedapp/core';
 import { useBalanceState } from '../../hooks/useBalanceState';
-import { MOONSAVE_CONTRACT } from '../../modules/dapp/dapp';
+import { SAVINGS_CONTRACT_ADDRESS } from '../../modules/contract/contract';
 import { Transaction } from './transactions.types';
 
 const getTransactionType = (transaction: StoredTransaction, myAddress: string) => {
@@ -11,7 +11,7 @@ const getTransactionType = (transaction: StoredTransaction, myAddress: string) =
     return 'deposit';
   }
   // TODO determine withdrawal vs moonsave
-  if (from === MOONSAVE_CONTRACT) {
+  if (from === SAVINGS_CONTRACT_ADDRESS) {
     return 'withdrawal';
   }
   return 'moonSave';
