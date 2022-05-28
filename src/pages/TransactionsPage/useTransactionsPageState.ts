@@ -1,6 +1,6 @@
 import { StoredTransaction, useEthers, useTransactions } from '@usedapp/core';
 import { useBalanceState } from '../../hooks/useBalanceState';
-import { STAKING_CONTRACT } from '../../modules/dapp/dapp';
+import { MOONSAVE_CONTRACT } from '../../modules/dapp/dapp';
 import { Transaction } from './transactions.types';
 
 const getTransactionType = (transaction: StoredTransaction, myAddress: string) => {
@@ -10,12 +10,11 @@ const getTransactionType = (transaction: StoredTransaction, myAddress: string) =
   if (from === myAddress) {
     return 'deposit';
   }
-  if (from === STAKING_CONTRACT) {
+  // TODO determine withdrawal vs moonsave
+  if (from === MOONSAVE_CONTRACT) {
     return 'withdrawal';
   }
-
-  // TODO interest and moonsave payments
-  return 'interest';
+  return 'moonSave';
 };
 
 const formatTransaction = (transaction: StoredTransaction, myAddress: string): Transaction => ({
