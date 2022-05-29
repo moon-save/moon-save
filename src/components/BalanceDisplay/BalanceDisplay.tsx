@@ -28,16 +28,16 @@ export const BalanceDisplay: React.FC<BalanceDisplayProps> = ({
       <Text weight="bold" color="dimmed" sx={{ fontSize: '2.25rem', lineHeight: '2.25rem' }}>
         {myETHBalanceInUSD}
       </Text>
-      <Text
+      {/* <Text
         weight="bold"
         color={balanceDelta > 0 ? 'green' : balanceDelta < 0 ? 'red' : 'gray'}
         sx={{ fontSize: '2.25rem', lineHeight: '2.25rem' }}
       >
         {balanceDelta > 0 ? '+' : balanceDelta < 0 ? '-' : ''}
         {balanceDelta}%
-      </Text>
+      </Text> */}
     </Box>
-    {showOddsToWin && <Text size="xl">{myOddsToWin}% Odds to Win</Text>}
+    {showOddsToWin && <Text size="xl">Interest Prize Pool: {myOddsToWin}</Text>}
   </Box>
 );
 BalanceDisplay.displayName = 'BalanceDisplay';

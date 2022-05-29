@@ -8,7 +8,7 @@ const transactionTypeToName: Record<TransactionType, string> = {
   deposit: 'Deposit',
   interest: 'Interest Payout',
   withdrawal: 'Withdrawal',
-  moonSave: 'MoonSave Payout🎉',
+  moonSave: 'MoonSave Winnings Payout 🎉',
 };
 
 export const TransactionListItem: React.FC<TransactionListItemProps> = ({
@@ -24,7 +24,7 @@ export const TransactionListItem: React.FC<TransactionListItemProps> = ({
           {transactionTypeToName[transactionType]}
         </Text>
         <Text size="xs" color="gray">
-          {transactionDate.toDateString()}
+        {transactionDate.toDateString()} {transactionDate.toLocaleTimeString()}
         </Text>
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
@@ -33,7 +33,7 @@ export const TransactionListItem: React.FC<TransactionListItemProps> = ({
           {transactionAmount} ETH
         </Text>
         <Text size="xs" color="gray">
-          ${totalBankAmount} USD
+          {totalBankAmount}
         </Text>
       </Box>
     </Box>

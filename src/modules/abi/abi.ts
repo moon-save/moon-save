@@ -138,13 +138,7 @@ export const savingsContractAbi = [
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_lotteryId",
-        "type": "uint256"
-      }
-    ],
+    "inputs": [],
     "name": "declareWinner",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -158,13 +152,7 @@ export const savingsContractAbi = [
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_lotteryId",
-        "type": "uint256"
-      }
-    ],
+    "inputs": [],
     "name": "depositSavings",
     "outputs": [],
     "stateMutability": "payable",
@@ -230,6 +218,11 @@ export const savingsContractAbi = [
             "type": "address[]"
           },
           {
+            "internalType": "address[]",
+            "name": "uniqueParticipants",
+            "type": "address[]"
+          },
+          {
             "internalType": "uint256",
             "name": "ticketPrice",
             "type": "uint256"
@@ -292,6 +285,19 @@ export const savingsContractAbi = [
   {
     "inputs": [],
     "name": "getPlayersCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getWinAmount",
     "outputs": [
       {
         "internalType": "uint256",

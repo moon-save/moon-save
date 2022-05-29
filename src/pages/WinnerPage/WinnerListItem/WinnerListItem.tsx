@@ -23,11 +23,10 @@ export const WinnerListItem: React.FC<WinnerListItemProps> = ({
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
         <Text align="right" weight="bold" color="green">
-          '+'
-          {winnerAmount} ETH
+          +{winnerAmount} ETH 🎉
         </Text>
         <Text size="xs" color="gray">
-          ${totalBankAmount} USD
+          {totalBankAmount}
         </Text>
       </Box>
     </Box>
