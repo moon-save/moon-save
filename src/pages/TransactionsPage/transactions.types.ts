@@ -5,5 +5,5 @@ export interface Transaction {
   transactionType: TransactionType;
   transactionAmount: number;
   transactionDate: Date;
-  totalBankAmount: number;
+  totalBankAmount: string;
 }
